@@ -1,9 +1,11 @@
 package com.example.Quora_backend_project.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tags")
@@ -16,4 +18,7 @@ public class Tag extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     private String name;
+
+    @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QuestionTag> questionTags = new ArrayList<>();
 }
