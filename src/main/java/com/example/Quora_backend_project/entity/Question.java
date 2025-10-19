@@ -25,9 +25,11 @@ public class Question extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
+    @Builder.Default
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Answer> answers = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuestionTag> questionTags = new ArrayList<>();
 
