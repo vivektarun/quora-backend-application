@@ -1,5 +1,6 @@
 package com.example.Quora_backend_project.dto;
 
+import com.example.Quora_backend_project.validation.StrongPassword;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -18,9 +19,7 @@ public class RegisterRequest {
     @Email(message = "must be a valid email address")
     private String email;
 
-    // TODO: make annotation for strong password.
-    @NotBlank(message = "Password is required")
-    @Size(min = 6, max = 100, message = "Password must be between 6 to 100 character")
+    @StrongPassword
     private String password;
 
     private String bio;
