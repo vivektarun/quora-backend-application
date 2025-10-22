@@ -34,6 +34,9 @@ public class UserServiceImpl implements UserService {
         // Build the entity
         User user = User.builder()
                 .userName(request.getUserName())
+                .firstName(request.getFirstName())
+                .middleName(request.getMiddleName())
+                .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(encodedPassword)
                 .bio(request.getBio())
@@ -55,11 +58,15 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserResponse mapToUserResponse(User user) {
-        UserResponse response = new UserResponse();
-        response.setId(user.getId());
-        response.setUserName(user.getUserName());
-        response.setEmail(user.getEmail());
-        response.setBio(user.getBio());
-        return response;
+        UserResponse resp = new UserResponse();
+        resp.setId(user.getId());
+        resp.setUserName(user.getUserName());
+        resp.setFirstName(user.getFirstName());
+        resp.setMiddleName(user.getMiddleName());
+        resp.setLastName(user.getLastName());
+        resp.setEmail(user.getEmail());
+        resp.setBio(user.getBio());
+        return resp;
     }
+
 }

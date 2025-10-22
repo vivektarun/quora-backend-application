@@ -7,8 +7,11 @@ import lombok.Setter;
 @Setter
 public class UserResponse {
 
-    private long id;
+    private Long id;
     private String userName;
+    private String firstName;
+    private String middleName;
+    private String lastName;
     private String email;
     private String bio;
 }

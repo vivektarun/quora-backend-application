@@ -15,6 +15,13 @@ public class RegisterRequest {
     @Size(min = 3, max = 50, message = "User name must be between 3 and 50 character")
     private String userName;
 
+    @NotBlank(message = "First name is required")
+    private String firstName;
+
+    private String middleName;
+
+    private String lastName;
+
     @NotBlank(message = "Email is required")
     @Email(message = "must be a valid email address")
     private String email;
